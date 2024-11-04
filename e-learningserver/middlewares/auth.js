@@ -4,13 +4,18 @@ import { catchAsyncError } from "./catchAsyncError.js";
 import { User } from "../models/User.js";
 
 export const isAuthenticated = catchAsyncError(async (req, res, next) => {
+  console.log("backend code..")
   const { token } = req.cookies;
+
+  console.log("token =>",token)
 
   if (!token) return next(new ErrorHandler("Not Logged In", 401));
 
-  const decoded = jwt.verify(token, process.env.JWT_SECRET);
+  const decoded = jwt.verify(token, "helperImmersemeri");
 
   req.user = await User.findById(decoded._id);
+
+  console.log(req.user,"req.user")
 
   next();
 });
@@ -25,6 +30,7 @@ export const authorizeSubscribers = (req, res, next) => {
 };
 
 export const authorizeAdmin = (req, res, next) => {
+  console.log(req?.user?.role, req?.user,"<======")
   if (req.user.role !== "admin")
     return next(
       new ErrorHandler(

@@ -18,15 +18,15 @@ import termsAndCondition from '../../assets/docs/termsAndCondition'
 const Founder = () => (
   <Stack direction={['column', 'row']} spacing={['4', '16']} padding={'8'}>
     <VStack>
-      <Avatar src="https://www.thefounder.in/wp-content/uploads/2020/09/192x192.jpg" boxSize={['40', '48']} />
-      <Text children="Co-Founder" opacity={0.7} />
+      <Avatar src="https://media.licdn.com/dms/image/v2/D5603AQGN8WcYx5flHw/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1718257777314?e=1735776000&v=beta&t=XUo2t3-C5cbRYPtJ7VV9nbK4cXIDxndVXsa3z5EKF6o" boxSize={['40', '48']} />
+      <Text children="CEO" opacity={0.7} />
     </VStack>
 
     <VStack justifyContent={'center'} alignItems={['center', 'flex-start']}>
-      <Heading children="Name" size={['md', 'xl']} />
+      <Heading children="Laxmi sharma" size={['md', 'xl']} />
       <Text
         textAlign={['center', 'left']}
-        children={`Description and Mission`}
+        children={`HelperImmerse is a dynamic, accessible platform dedicated to delivering high-quality web and app development services, along with tutoring in web development, at the most affordable prices. We focus on empowering individuals and businesses by providing customized solutions in web and app development and ensuring robust support to learners looking to advance their technical skills. Our expert-led tutorials cover front-end, back-end, and full-stack development, tailored to equip learners with in-demand industry skills. With a dedicated team of developers and mentors, we ensure our clients and students receive top-notch services and support, every step of the way`}
       />
     </VStack>
   </Stack>
@@ -79,8 +79,7 @@ const About = () => {
       <Founder />
       <Stack m="8" direction={['column', 'row']} alignItems="center">
         <Text fontFamily={'cursive'} m="8" textAlign={['center', 'left']}>
-          We are a video streaming platform with some premium courses available
-          only for premium users.
+        Explore other platforms first, then come to us for an unmatched experience in quality, affordability, and exclusive content.
         </Text>
 
         <Link to="/subscribe">

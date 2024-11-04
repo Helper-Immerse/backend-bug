@@ -4,9 +4,15 @@ import cloudinary from "cloudinary"
 import RazorPay from "razorpay"
 import nodeCron from "node-cron"
 import { Stats } from "./models/Stats.js"
+import cors from "cors"
 
 import { createRequire } from "module";
 const require = createRequire(import.meta.url)
+
+app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true // if you’re using cookies or any credentials
+}));
 
 //Accessing .env variable using Dotenv
 if (process.env.NODE_ENV !== "PRODUCTION") {
@@ -24,8 +30,8 @@ cloudinary.v2.config({
 })
 
 export const instance = new RazorPay({
-    key_id: process.env.RAZORPAY_API_KEY,
-    key_secret: process.env.RAZORPAY_API_SECRET,
+    key_id: "rzp_test_cSQRF8g2iWxvt7",
+    key_secret: "jwLYzs9crIOhMCk977vB5dMU",
 });
 
 //1st day of every month
@@ -37,6 +43,6 @@ nodeCron.schedule("0 0 0 1 * *", async () => {
     }
 });
 
-app.listen(process.env.PORT, () => {
-    console.log(`Server is working on port: ${process.env.PORT}`);
+app.listen(3978, () => {
+    console.log(`Server is working on port: ${3978}`);
 })

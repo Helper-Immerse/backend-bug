@@ -32,6 +32,7 @@ import { cancelSubscription, loadUser } from '../../redux/actions/user';
 import { fileUploadCss } from '../Auth/Register';
 
 const Profile = ({ user }) => {
+    console.log("user ===>",user);
     const dispatch = useDispatch();
     const { loading, message, error } = useSelector(state => state.profile);
     const {

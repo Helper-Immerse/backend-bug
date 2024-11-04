@@ -70,7 +70,7 @@ schema.pre("save", async function (next) {
 });
 
 schema.methods.getJWTToken = function () {
-    return jwt.sign({ _id: this._id }, process.env.JWT_SECRET, {
+    return jwt.sign({ _id: this._id }, "helperImmersemeri", {
         expiresIn: "15d",
     });
 };

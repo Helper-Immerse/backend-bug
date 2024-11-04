@@ -12,26 +12,31 @@ import { Stats } from "../models/Stats.js";
 export const register = catchAsyncError(async (req, res, next) => {
     const { name, email, password } = req.body;
     const file = req.file;
-
+    
     if (!name || !email || !password || !file)
         return next(new ErrorHandler("Please enter all field", 400));
-
+    console.log(name, email, password)
     let user = await User.findOne({ email });
+    console.log("coming here ...............",user);
 
     if (user) return next(new ErrorHandler("User Already Exist", 409));
-
+    console.log("jeiojiroewj")
     const fileUri = getDataUri(file);
-    const mycloud = await cloudinary.v2.uploader.upload(fileUri.content, { folder: "elearning" });
+    console.log("uio")
+    // const mycloud = await cloudinary.v2.uploader.upload(fileUri.content, { folder: "elearning" });
+    console.log("[][]")
 
     user = await User.create({
         name,
         email,
         password,
         avatar: {
-            public_id: mycloud.public_id,
-            url: mycloud.secure_url,
+            public_id: "mycloud.public_id",
+            url: "mycloud.secure_url",
         },
     });
+
+    console.log("user =>",user)
 
     sendToken(res, user, "Registered Successfully", 201);
 });

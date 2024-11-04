@@ -1,5 +1,7 @@
-export const sendToken = (res, user, message, statusCode = 200) => {
+export const sendToken = (res, user, message, statusCode = 201) => {
+  console.log("coming hereeeeeeeee")
   const token = user.getJWTToken();
+  console.log("token=>",token)
   const options = {
     expires: new Date(Date.now() + 15 * 24 * 60 * 60 * 1000),
     httpOnly: true,
@@ -7,7 +9,9 @@ export const sendToken = (res, user, message, statusCode = 200) => {
     sameSite: "none",
   };
 
-  res.status(statusCode).cookie("token", token, options).json({
+  console.log("options")
+
+  res.status(201).cookie("token", token, options).json({
     success: true,
     message,
     user,

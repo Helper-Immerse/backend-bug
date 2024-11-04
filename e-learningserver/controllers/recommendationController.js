@@ -18,7 +18,7 @@ export const createRecommendation = catchAsyncError(async (req, res, next) => {
         })
         return
     }
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(token, "helperImmersemeri");
     const user = await User.findById(decoded._id)
     if (user === undefined || user.playlist.length === 0) {
         const courses = await Course.find({}).sort({ "views": -1 }).limit(limit)

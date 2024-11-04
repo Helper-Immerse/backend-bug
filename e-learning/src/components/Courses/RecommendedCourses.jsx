@@ -47,7 +47,7 @@ const RecommendedCourses = () => {
         <Loader />
     ) : (
         <Container minH={'95vh'} maxW="container.lg" paddingY={'8'}>
-            <Heading children="Recommended Courses" m={'8'} />
+            <Heading children="Recommended Plans" m={'8'} />
             <Stack
                 direction={['column', 'row']}
                 flexWrap="wrap"
